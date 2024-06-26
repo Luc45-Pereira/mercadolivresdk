@@ -1,6 +1,6 @@
 """SDK do Mercado Livre para gerenciamento de produtos."""
 import requests
-from ..models.product import ProductAd, ProductCreate, ProductUpdate, ProductDescription
+from .product_model import ProductAd, ProductCreate, ProductUpdate, ProductDescription
 
 class ProductManager:
     """Classe responsável por gerenciar os produtos do Mercado Livre."""
