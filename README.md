@@ -2,10 +2,13 @@
 Este SDK oferece uma interface para gerenciar produtos na plataforma MercadoLivre usando Python.
 
 ## Funcionalidades
-- Gerenciamento de produtos Criação, 
+- Criação de produtos, 
 - atualização e exclusão de produtos 
+- Busca de produtos
 - Fechamento de produtos
 - Obtenção e atualização de descrições de produtos
+
+
 ## Instalação
 Para instalar o SDK, use pip:
 
@@ -15,8 +18,7 @@ pip install mercadolivresdk
 ```
 ## Uso
 ```python
-from mercadolivresdk.manager.product import ProductManager
-from mercadolivresdk.models.product import ProductCreate, ProductUpdate, ProductDescription
+from mercadolivresdk import ProductManager, ProductCreate, ProductUpdate
 
 # Inicialize o gerenciador de produtos
 pm = ProductManager(access_token='seu_access_token')
@@ -53,14 +55,11 @@ pm.update_product_description(product_id='123456', description=new_description)
 ```markdown
 mercadolivresdk/
 │
-├── internal/
-│   └── manager/
-│       └── product.py
-├── models/
-│   ├── __init__.py
-│   └── product.py
+├── __init__.py
+├── product_manager.py
+├── product_model.py
 ├── tests/
-│   ├── __init__.py
+│   ├── test_product.py
 ├── .gitignore
 ├── LICENSE
 ├── README.md

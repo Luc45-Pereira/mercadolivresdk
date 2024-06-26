@@ -1,17 +1,20 @@
 """Modelo de produto do Mercado Livre"""
-from pydantic import BaseModel, Field
 from typing import Optional, List, Dict
+from pydantic import BaseModel, Field
 
 class ValueStruct(BaseModel):
+    """Estrutura de valor de um atributo de um produto do Mercado Livre"""
     number: int
     unit: str
 
 class Value(BaseModel):
+    """Valor de um atributo de um produto do Mercado Livre"""
     id: Optional[str]
     name: str
     struct: Optional[ValueStruct]
 
 class SaleTerm(BaseModel):
+    """Termos de venda de um produto do Mercado Livre"""
     id: str
     name: str
     value_id: Optional[str]
@@ -21,6 +24,7 @@ class SaleTerm(BaseModel):
     value_type: str
 
 class Picture(BaseModel):
+    """Imagem de um produto do Mercado Livre"""
     id: str
     url: str
     secure_url: str
@@ -29,6 +33,7 @@ class Picture(BaseModel):
     quality: str
 
 class Shipping(BaseModel):
+    """Informações de envio do produto do Mercado Livre"""
     mode: str
     methods: List[str]
     tags: List[str]
@@ -39,6 +44,7 @@ class Shipping(BaseModel):
     store_pick_up: bool
 
 class Address(BaseModel):
+    """Endereço do vendedor do Mercado Livre"""
     id: Optional[int]
     comment: str
     address_line: str
@@ -51,6 +57,7 @@ class Address(BaseModel):
     longitude: float
 
 class Attribute(BaseModel):
+    """Atributos de um produto do Mercado Livre"""
     id: str
     name: str
     value_id: Optional[str]
@@ -59,6 +66,7 @@ class Attribute(BaseModel):
     value_type: str
 
 class ProductAd(BaseModel):
+    """Modelo de produto do Mercado Livre"""
     id: str
     site_id: str
     title: str
@@ -120,6 +128,7 @@ class ProductAd(BaseModel):
     channels: List[str]
 
 class ProductCreate(BaseModel):
+    """Criação de um produto do Mercado Livre"""
     title: str = Field(..., title='Título do produto')
     category_id: str = Field(..., title='ID da categoria do produto')
     price: float = Field(..., title='Preço do produto')
@@ -135,7 +144,7 @@ class ProductCreate(BaseModel):
     attributes: List[Attribute] = Field(..., title='Lista de atributos do produto')
     shipping: Shipping = Field(..., title='Informações de envio do produto')
     seller_custom_field: str = Field(..., title='Campo personalizado do vendedor')
-    automatic_relist: bool = Field(..., title='Indica se o produto deve ser automaticamente republicado')
+    automatic_relist: bool = Field(..., title='Indica se produto será republicado automaticamente')
     catalog_product_id: Optional[str] = Field(None, title='ID do produto no catálogo')
     parent_item_id: Optional[str] = Field(None, title='ID do item pai')
     deal_ids: List[str] = Field(..., title='Lista de IDs de ofertas')
@@ -150,6 +159,7 @@ class ProductCreate(BaseModel):
     warranty: str
 
 class ProductUpdate(BaseModel):
+    """Atualização de um produto do Mercado Livre"""
     status: Optional[str] = Field(None, title='Status do produto')
     price: Optional[float] = Field(None, title='Preço do produto')
     available_quantity: Optional[int] = Field(None, title='Quantidade disponível do produto')
@@ -157,12 +167,14 @@ class ProductUpdate(BaseModel):
     attributes: Optional[List[Attribute]] = Field(None, title='Lista de atributos do produto')
 
 class Snapshot(BaseModel):
+    """Informações da imagem da descrição do produto do Mercado Livre"""
     url: str
     width: int
     height: int
     status: str
 
 class ProductDescription(BaseModel):
+    """Descrição de um produto do Mercado Livre"""
     text: str = Field(..., title='Descrição do produto')
     plain_text: str = Field(..., title='Descrição do produto em texto puro')
     last_updated: str = Field(..., title='Data da última atualização da descrição')

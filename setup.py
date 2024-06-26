@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setup(
     name="mercadolivresdk",
-    version="0.0.1",
+    version="0.0.3",
     author="Lucas Pereira de Lima",
     author_email="lucaspereiradelima94@gmail.com",
     description="biblioteca para integração com a API do Mercado Livre de forma facilitada",
