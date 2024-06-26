@@ -11,7 +11,7 @@ setup(
     description="biblioteca para integração com a API do Mercado Livre de forma facilitada",
     long_description=long_description,
     long_description_content_type="text/markdown",
-    url="https://github.com/Luc45-Pereira/mercadolivre-sdk",
+    url="https://github.com/Luc45-Pereira/mercadolivresdk",
     packages=find_packages(),
     classifiers=[
         "Programming Language :: Python :: 3",
