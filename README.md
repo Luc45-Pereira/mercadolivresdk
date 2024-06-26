@@ -1,5 +1,5 @@
-# MercadoLivre SDK
-Este SDK oferece uma interface para gerenciar produtos na plataforma MercadoLivre usando Python.
+# MercadoLivreVerifications
+Esta lib oferece uma interface para gerenciar produtos na plataforma MercadoLivre usando Python.
 
 ## Funcionalidades
 - Criação de produtos, 
@@ -7,6 +7,9 @@ Este SDK oferece uma interface para gerenciar produtos na plataforma MercadoLivr
 - Busca de produtos
 - Fechamento de produtos
 - Obtenção e atualização de descrições de produtos
+- Verificação de anúncios, incluindo:
+    - Contagem de anúncios em status específicos
+    - Verificação de anúncios em lojas oficiais
 
 
 ## Instalação
@@ -18,7 +21,11 @@ pip install mercadolivresdk
 ```
 ## Uso
 ```python
-from mercadolivresdk import ProductManager, ProductCreate, ProductUpdate
+from mercadolivresdk import ProductManager, ProductCreate, ProductUpdate, ProductVerification
+
+pv = ProductVerification(access_token='seu_acess_token', products_ids=["1234","1234"])
+
+print(pv.verify_state_products(["review", "closed"]))
 
 # Inicialize o gerenciador de produtos
 pm = ProductManager(access_token='seu_access_token')

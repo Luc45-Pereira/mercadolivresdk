@@ -1,7 +1,7 @@
 """Módulo de testes para o gerenciador de produtos."""
 import unittest
-from mercadolivresdk.product_manager import ProductManager
-from mercadolivresdk.product_model import ProductAd, ProductDescription, Snapshot
+from mercadolivreverifications.product_manager import ProductManager
+from mercadolivreverifications.product_model import ProductAd, ProductDescription, Snapshot
 
 class TestProductManager(unittest.TestCase):
     """Classe de testes para o gerenciador de produtos."""
